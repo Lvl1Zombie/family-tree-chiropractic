@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiropractic for Kids in Ephrata PA | Family Tree Chiropractic</title>
+  <meta name="description" content="Have you considered chiropractic for your kids? At Family Tree Chiropractic in Ephrata PA, we protect a child's developing nervous system through every stage — from infants to teens. Drug-free, gentle, and family-friendly. Call 717-738-2555.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Chiropractic for Kids — full-bleed hero with floating translucent panel */
+    .kids-hero {
+      position: relative;
+      min-height: 72vh;
+      background: var(--color-cream);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .kids-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .kids-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+    }
+    .kids-hero__panel {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(135deg, rgba(6, 35, 19, 0.85) 0%, rgba(6, 35, 19, 0.70) 60%, rgba(6, 35, 19, 0.55) 100%);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      color: var(--color-cream);
+      padding: clamp(40px, 4.5vw, 60px) clamp(36px, 4vw, 56px);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 720px;
+      margin: clamp(96px, 11vh, 140px) clamp(28px, 6vw, 88px) clamp(50px, 7vh, 80px) clamp(16px, 3vw, 40px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(180, 134, 43, 0.22);
+    }
+    .kids-hero__label {
+      font-family: var(--font-primary);
+      font-size: 0.78rem;
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .kids-hero__label::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+    .kids-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: var(--fw-bold);
+      color: #FFFFFF;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .kids-hero__sub {
+      font-family: var(--font-primary);
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: rgba(245, 244, 238, 0.88);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0;
+    }
+    .kids-hero__cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    @media (max-width: 1024px) {
+      .kids-hero__bg img { object-position: 60% center; }
+      .kids-hero__panel {
+        padding: clamp(32px, 6vw, 48px) clamp(28px, 5vw, 40px);
+        margin: clamp(88px, 12vh, 120px) clamp(20px, 5vw, 48px) clamp(50px, 8vh, 80px) clamp(14px, 3vw, 28px);
+      }
+    }
+    @media (max-width: 600px) {
+      .kids-hero__cta { flex-direction: column; align-items: stretch; }
+      .kids-hero__cta .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">Family Tree</span>
+        <span class="nav__logo-sub">Chiropractic</span>
+        <span class="nav__logo-tag">Lancaster Neuropathy</span>
+      </div>
+    </a>
+
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">About</span>
+        <div class="nav__dropdown-menu">
+          <a href="meet-the-doctors.html" class="nav__dropdown-item">Meet the Doctors</a>
+          <a href="about-clinic.html" class="nav__dropdown-item">About Our Clinic</a>
+          <a href="payment-options.html" class="nav__dropdown-item">Payment Options</a>
+          <a href="testimonials.html" class="nav__dropdown-item">Testimonials</a>
+          <a href="blog.html" class="nav__dropdown-item">Blog</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">Services</span>
+        <div class="nav__dropdown-menu">
+          <div class="nav__dropdown-submenu">
+            <a href="chiropractic-care.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Chiropractic Care</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="chiropractic-for-kids.html" class="nav__dropdown-item">Chiropractic for Kids</a>
+            </div>
+          </div>
+          <a href="dot-exams.html" class="nav__dropdown-item">DOT Exams</a>
+          <a href="cold-laser-therapy.html" class="nav__dropdown-item">Cold Laser Therapy</a>
+          <a href="decompression.html" class="nav__dropdown-item">Spinal Decompression</a>
+          <a href="pulsewave.html" class="nav__dropdown-item">PulseWave Therapy</a>
+          <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+          <a href="orthotics.html" class="nav__dropdown-item">Orthotics</a>
+          <a href="gut-health.html" class="nav__dropdown-item">Gut Health</a>
+          <a href="accident-injury.html" class="nav__dropdown-item">Accident Injury</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">Conditions</span>
+        <div class="nav__dropdown-menu">
+          <a href="neuropathy.html" class="nav__dropdown-item">Neuropathy</a>
+          <div class="nav__dropdown-submenu">
+            <a href="spine-related.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Spine Related</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="back-pain.html" class="nav__dropdown-item">Back Pain</a>
+              <a href="headaches-and-migraines.html" class="nav__dropdown-item">Headaches and Migraines</a>
+              <a href="low-back-pain.html" class="nav__dropdown-item">Low Back Pain</a>
+              <a href="neck-pain.html" class="nav__dropdown-item">Neck Pain</a>
+              <a href="sciatica.html" class="nav__dropdown-item">Sciatica</a>
+              <a href="scoliosis.html" class="nav__dropdown-item">Scoliosis</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="injuries.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Injuries</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="disc-injury.html" class="nav__dropdown-item">Disc Injury</a>
+              <a href="whiplash.html" class="nav__dropdown-item">Whiplash</a>
+              <a href="sports-injury.html" class="nav__dropdown-item">Sports Injury</a>
+              <a href="work-injury.html" class="nav__dropdown-item">Work Injury</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="extremities.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Extremities</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="arm-and-leg-pain.html" class="nav__dropdown-item">Arm and Leg Pain</a>
+              <a href="carpal-tunnel.html" class="nav__dropdown-item">Carpal Tunnel</a>
+              <a href="knee-pain.html" class="nav__dropdown-item">Knee Pain</a>
+              <a href="shoulder-pain.html" class="nav__dropdown-item">Shoulder Pain</a>
+              <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="other-conditions.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Other Conditions</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="pregnancy.html" class="nav__dropdown-item">Pregnancy</a>
+              <a href="vertigo.html" class="nav__dropdown-item">Vertigo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="reviews.html" class="nav__link">Review Us</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="tel:7177382555" class="btn btn--primary btn--nav">Book Now</a>
+    </div>
+
+    <button class="nav__toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section (full-bleed image + floating translucent forest panel) -->
+  <section class="kids-hero">
+    <div class="kids-hero__bg">
+      <img src="kids-hero.jpg" alt="Child receiving gentle chiropractic care" loading="eager">
+    </div>
+    <div class="kids-hero__panel">
+      <div class="kids-hero__label">Chiropractic for Kids</div>
+      <h1 class="kids-hero__title">Chiropractic for Kids in Ephrata PA</h1>
+      <p class="kids-hero__sub">Drug-free, gentle chiropractic care that protects a child's developing nervous system — from infancy through high school.</p>
+      <div class="kids-hero__cta">
+        <a href="tel:7177382555" class="btn btn--call">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 717-738-2555
+        </a>
+        <a href="contact.html" class="btn btn--white">Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="label">Why It Matters</div>
+        <h2>Protecting a child's body<br>by protecting their nerves.</h2>
+      </div>
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <p>Have you considered chiropractic for your kids in Ephrata PA? At Family Tree Chiropractic we firmly believe in protecting a child's body by making sure they have the best possible functioning nervous system. It's well known that children bounce back quickly — but that's related to how they feel. Physically and structurally, that isn't always the case. Children don't always verbalize exactly what they feel when they're sore, uncomfortable, or in pain. Just like with adults, if the underlying cause is left alone for too long, it grows into a bigger problem. Chiropractic care for children can be very beneficial.</p>
+        <p>Starting from the time a child is conceived, their bodies are growing and being put under stress. While the child is growing, they're usually curled up in a ball — and then they're pushed and/or pulled during birth. Take a second and think about how you would feel if today you underwent that kind of experience. All of this stress and trauma affects the spine, which can lead to issues with the nervous system. That's a problem, because the nervous system is what controls everything our body does: blinking, breathing, heartbeat, the ability to fight illness, walking, talking, thinking, speaking — everything.</p>
+        <p>Want more detail? Our blog post <a href="kids-see-chiropractor.html" style="color: var(--color-gold); font-weight: var(--fw-semibold);">"Should Kids See a Chiropractor?"</a> goes deeper on safety and effectiveness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pediatric Chiropractic — Through the stages -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="label">Pediatric Chiropractic in Ephrata PA</div>
+        <h2>Childhood doesn't slow down.<br>Neither does the wear on their body.</h2>
+      </div>
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <p>Chiropractic care can be helpful for your child's development. After birth, the physical stress and trauma continue when children grow into toddlers. They're faced with the developmental challenge of crawling and walking. While learning to overcome these challenges, there's a significant amount of straining, twisting, and falling. As growth continues and the child starts to play with pets, friends, and family, they can again endure more physical stress and trauma. Generally, children in the preschool through middle-school age range play hard and try to play without limits.</p>
+        <p>As toddlers grow into kids, they often start to develop bad posture, play contact sports, wear heavier backpacks (most likely the wrong way), and deal with the stress of more daily responsibilities. As these kids become teenagers and high-school graduates, they often join the workforce — usually jobs that require a lot of moving around and physical labor, like servers, factory workers, and the like.</p>
+        <p>At Family Tree Chiropractic, we make a point to make sure that all the falls, stress, trauma, and physical demands that your children endure don't stop them from being kids. We love treating children of all ages.</p>
+        <p>As a parent, you want to protect your child from pain and sickness as much as you can. We get that. Let us help you. Chiropractic care is all about protecting your body from harm. Our exams are extensive — so even if your child is too young to communicate, or too shy, we'll make sure we know exactly what's going on before proceeding with treatment. And we'll make sure you know what's going on every step of the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Block -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-block fade-in">
+        <h2>Get your child on their way<br>to a better life.</h2>
+        <p class="subtitle">Call our Ephrata PA chiropractic team today for a no-obligation consultation. We'll listen, walk you through what we'd look for, and tell you straight whether chiropractic is the right fit for your kid.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:7177382555" class="btn btn--call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 717-738-2555
+          </a>
+          <a href="contact.html" class="btn btn--white">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" style="margin-bottom: 8px;">
+            <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+            <div class="nav__logo-text">
+              <span class="nav__logo-name">Family Tree</span>
+              <span class="nav__logo-sub">Chiropractic</span>
+              <span class="nav__logo-tag">Lancaster Neuropathy</span>
+            </div>
+          </a>
+          <p>We help people with chronic pain find the root cause and heal at the source — drug-free, non-surgical, and built for the life beyond the symptom.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Services</div>
+          <a href="neuropathy.html" class="footer__link">Neuropathy</a>
+          <a href="chiropractic-care.html" class="footer__link">Chiropractic Care</a>
+          <a href="cold-laser-therapy.html" class="footer__link">Cold Laser Therapy</a>
+          <a href="decompression.html" class="footer__link">Decompression</a>
+          <a href="pulsewave.html" class="footer__link">PulseWave Therapy</a>
+        </div>
+        <div>
+          <div class="footer__heading">More</div>
+          <a href="dot-exams.html" class="footer__link">DOT Exams</a>
+          <a href="accident-injury.html" class="footer__link">Accident Injury</a>
+          <a href="plantar-fasciitis.html" class="footer__link">Plantar Fasciitis</a>
+          <a href="gut-health.html" class="footer__link">Gut Health</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <a href="tel:7177382555" class="footer__link">Call: 717-738-2555</a>
+          <span class="footer__link">904 Dawn Ave.<br>Ephrata, PA 17522</span>
+          <span class="footer__link">Mon&ndash;Fri: 8am&ndash;6pm<br>Sat: 9am&ndash;1pm</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Family Tree Chiropractic. All rights reserved.</span>
+        <span>Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -3,13 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Accident Injury Treatment | Family Tree Chiropractic</title>
-  <meta name="description" content="Injured in a car accident? Family Tree Chiropractic provides comprehensive chiropractic treatment for whiplash, soft tissue injuries, and spinal damage. We work with insurance and personal injury cases.">
+  <title>Auto Accident Injury Care in Lancaster | Family Tree Chiropractic</title>
+  <meta name="description" content="If you walked away from a crash, the injuries that wreck your next year don't show up at the scene. Family Tree Chiropractic catches whiplash, soft tissue, and disc damage early — and bills your PIP/MedPay directly. Call 717-738-2555.">
   <meta name="keywords" content="auto accident injury treatment, car accident chiropractor, whiplash treatment, soft tissue injury, spinal injury treatment, PIP MedPay chiropractic, personal injury chiropractic, accident recovery">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Accident Injury — full-bleed hero with floating translucent panel */
+    .ai-hero {
+      position: relative;
+      min-height: 72vh;
+      background: var(--color-cream);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .ai-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .ai-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+    }
+    .ai-hero__panel {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(135deg, rgba(6, 35, 19, 0.85) 0%, rgba(6, 35, 19, 0.70) 60%, rgba(6, 35, 19, 0.55) 100%);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      color: var(--color-cream);
+      padding: clamp(44px, 4.5vw, 64px) clamp(40px, 4.5vw, 64px);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      max-width: 840px;
+      margin: clamp(88px, 9vh, 120px) clamp(28px, 6vw, 88px) clamp(40px, 6vh, 70px) clamp(16px, 3vw, 40px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(180, 134, 43, 0.2);
+    }
+    .ai-hero__label {
+      font-family: var(--font-primary);
+      font-size: 0.78rem;
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ai-hero__label::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+    .ai-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4.4vw, 3.7rem);
+      font-weight: var(--fw-bold);
+      color: #FFFFFF;
+      line-height: 1.18;
+      letter-spacing: 0.02em;
+      margin: 0;
+      max-width: 760px;
+    }
+    .ai-hero__title .accent {
+      color: var(--color-gold);
+      display: block;
+    }
+    .ai-hero__sub {
+      font-family: var(--font-primary);
+      font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+      color: rgba(245, 244, 238, 0.88);
+      line-height: 1.65;
+      max-width: 700px;
+      margin: 0;
+    }
+    .ai-hero__cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .ai-hero__cta-secondary {
+      background: transparent;
+      color: var(--color-cream);
+      border: 1px solid rgba(245, 244, 238, 0.55);
+    }
+    .ai-hero__cta-secondary:hover {
+      background: var(--color-cream);
+      color: var(--color-forest);
+      transform: translateY(-2px);
+    }
+
+    /* Trust strip */
+    .ai-trust {
+      background: var(--color-paper);
+      padding: 22px 0 52px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .ai-trust__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      align-items: flex-start;
+    }
+    .ai-trust__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .ai-trust__icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(180, 134, 43, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+    }
+    .ai-trust__text {
+      font-family: var(--font-primary);
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--color-forest);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 1024px) {
+      .ai-hero {
+        min-height: 78vh;
+      }
+      .ai-hero__bg img {
+        object-position: 60% center;
+      }
+      .ai-hero__panel {
+        padding: clamp(36px, 6vw, 56px) clamp(28px, 6vw, 44px);
+        margin: clamp(80px, 11vh, 110px) clamp(20px, 5vw, 48px) clamp(60px, 10vh, 100px) clamp(14px, 3vw, 28px);
+      }
+      .ai-trust__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+    }
+    @media (max-width: 600px) {
+      .ai-hero__cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .ai-hero__cta .btn {
+        width: 100%;
+      }
+      .ai-trust__grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,25 +182,86 @@
       <div class="nav__logo-text">
         <span class="nav__logo-name">Family Tree</span>
         <span class="nav__logo-sub">Chiropractic</span>
+        <span class="nav__logo-tag">Lancaster Neuropathy</span>
       </div>
     </a>
 
     <div class="nav__links">
       <a href="index.html" class="nav__link">Home</a>
-      <a href="chiropractic-care.html" class="nav__link">Chiropractic Care</a>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">About</span>
+        <div class="nav__dropdown-menu">
+          <a href="meet-the-doctors.html" class="nav__dropdown-item">Meet the Doctors</a>
+          <a href="about-clinic.html" class="nav__dropdown-item">About Our Clinic</a>
+          <a href="payment-options.html" class="nav__dropdown-item">Payment Options</a>
+          <a href="testimonials.html" class="nav__dropdown-item">Testimonials</a>
+          <a href="blog.html" class="nav__dropdown-item">Blog</a>
+        </div>
+      </div>
       <div class="nav__dropdown">
         <span class="nav__link nav__dropdown-toggle">Services</span>
         <div class="nav__dropdown-menu">
-          <a href="neuropathy.html" class="nav__dropdown-item">Neuropathy</a>
+          <div class="nav__dropdown-submenu">
+            <a href="chiropractic-care.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Chiropractic Care</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="chiropractic-for-kids.html" class="nav__dropdown-item">Chiropractic for Kids</a>
+            </div>
+          </div>
+          <a href="dot-exams.html" class="nav__dropdown-item">DOT Exams</a>
           <a href="cold-laser-therapy.html" class="nav__dropdown-item">Cold Laser Therapy</a>
           <a href="decompression.html" class="nav__dropdown-item">Spinal Decompression</a>
           <a href="pulsewave.html" class="nav__dropdown-item">PulseWave Therapy</a>
           <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+          <a href="orthotics.html" class="nav__dropdown-item">Orthotics</a>
           <a href="gut-health.html" class="nav__dropdown-item">Gut Health</a>
+          <a href="accident-injury.html" class="nav__dropdown-item">Accident Injury</a>
         </div>
       </div>
-      <a href="dot-exams.html" class="nav__link">DOT Exams</a>
-      <a href="accident-injury.html" class="nav__link">Accident Injury</a>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">Conditions</span>
+        <div class="nav__dropdown-menu">
+          <a href="neuropathy.html" class="nav__dropdown-item">Neuropathy</a>
+          <div class="nav__dropdown-submenu">
+            <a href="spine-related.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Spine Related</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="back-pain.html" class="nav__dropdown-item">Back Pain</a>
+              <a href="headaches-and-migraines.html" class="nav__dropdown-item">Headaches and Migraines</a>
+              <a href="low-back-pain.html" class="nav__dropdown-item">Low Back Pain</a>
+              <a href="neck-pain.html" class="nav__dropdown-item">Neck Pain</a>
+              <a href="sciatica.html" class="nav__dropdown-item">Sciatica</a>
+              <a href="scoliosis.html" class="nav__dropdown-item">Scoliosis</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="injuries.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Injuries</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="disc-injury.html" class="nav__dropdown-item">Disc Injury</a>
+              <a href="whiplash.html" class="nav__dropdown-item">Whiplash</a>
+              <a href="sports-injury.html" class="nav__dropdown-item">Sports Injury</a>
+              <a href="work-injury.html" class="nav__dropdown-item">Work Injury</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="extremities.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Extremities</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="arm-and-leg-pain.html" class="nav__dropdown-item">Arm and Leg Pain</a>
+              <a href="carpal-tunnel.html" class="nav__dropdown-item">Carpal Tunnel</a>
+              <a href="knee-pain.html" class="nav__dropdown-item">Knee Pain</a>
+              <a href="shoulder-pain.html" class="nav__dropdown-item">Shoulder Pain</a>
+              <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+            </div>
+          </div>
+          <div class="nav__dropdown-submenu">
+            <a href="other-conditions.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Other Conditions</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="pregnancy.html" class="nav__dropdown-item">Pregnancy</a>
+              <a href="vertigo.html" class="nav__dropdown-item">Vertigo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="reviews.html" class="nav__link">Review Us</a>
+      <a href="contact.html" class="nav__link">Contact</a>
       <a href="tel:7177382555" class="btn btn--primary btn--nav">Book Now</a>
     </div>
 
@@ -47,24 +270,57 @@
     </button>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero hero--service">
-    <div class="hero__bg">
-      <img src="accident-hero.jpg" alt="Young man on the phone after a car accident, sitting against a damaged vehicle" loading="eager">
+  <!-- Hero Section (full-bleed image + floating translucent forest panel) -->
+  <section class="ai-hero">
+    <div class="ai-hero__bg">
+      <img src="accident-hero.jpg" alt="Patient receiving care after an auto accident" loading="eager">
     </div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <div class="label" style="color: var(--accent-gold);">
-        <span style="display:none;"></span>Auto Accident Injury Care
-      </div>
-      <h1>The adrenaline lied.<br>The pain is coming.</h1>
-      <p class="subtitle">You walked away from the crash. The insurance calls have already started. And right now, you feel mostly okay — which is exactly the trap. The injuries that wreck your next year don't show up at the scene.</p>
-      <div class="hero__buttons">
+    <div class="ai-hero__panel">
+      <div class="ai-hero__label">Auto Accident Injury Care</div>
+      <h1 class="ai-hero__title">
+        You Felt Fine<br>
+        After the Crash.
+        <span class="accent">That May Be the Problem.</span>
+      </h1>
+      <p class="ai-hero__sub">Pain, stiffness, headaches, and whiplash symptoms can show up days or weeks after an accident. Get checked before small injuries become long-term problems.</p>
+      <div class="ai-hero__cta">
         <a href="tel:7177382555" class="btn btn--call">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Call 717-738-2555
         </a>
-        <a href="chiropractic-care.html" class="btn btn--white">Explore Services</a>
+        <a href="tel:7177382555" class="btn ai-hero__cta-secondary">Schedule an Accident Evaluation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip — four short benefit blocks -->
+  <section class="ai-trust">
+    <div class="container">
+      <div class="ai-trust__grid">
+        <div class="ai-trust__item">
+          <div class="ai-trust__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="ai-trust__text">Specialized Care for Auto Accident Injuries</div>
+        </div>
+        <div class="ai-trust__item">
+          <div class="ai-trust__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="ai-trust__text">Thorough Evaluations to Find the Root Cause</div>
+        </div>
+        <div class="ai-trust__item">
+          <div class="ai-trust__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="ai-trust__text">Personalized Treatment to Relieve Pain &amp; Heal</div>
+        </div>
+        <div class="ai-trust__item">
+          <div class="ai-trust__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div class="ai-trust__text">We Help with Insurance Claims</div>
+        </div>
       </div>
     </div>
   </section>
@@ -207,11 +463,12 @@
           <a href="index.html" class="nav__logo" style="margin-bottom: 8px;">
 <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
             <div class="nav__logo-text">
-              <span class="nav__logo-name" style="color: var(--text-light);">Family Tree</span>
+              <span class="nav__logo-name">Family Tree</span>
               <span class="nav__logo-sub">Chiropractic</span>
+              <span class="nav__logo-tag">Lancaster Neuropathy</span>
             </div>
           </a>
-          <p>Expert chiropractic care rooted in science and powered by advanced technology. Serving families with drug-free, non-surgical solutions for lasting relief.</p>
+          <p>We help people with chronic pain find the root cause and heal at the source — drug-free, non-surgical, and built for the life beyond the symptom.</p>
         </div>
         <div>
           <div class="footer__heading">Services</div>

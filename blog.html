@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &amp; Resources | Family Tree Chiropractic</title>
+  <meta name="description" content="Plain-English articles from Dr. Parker on what's actually happening in your body — and what to do about it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">Family Tree</span>
+        <span class="nav__logo-sub">Chiropractic</span>
+        <span class="nav__logo-tag">Lancaster Neuropathy</span>
+      </div>
+    </a>
+
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">About</span>
+        <div class="nav__dropdown-menu">
+          <a href="meet-the-doctors.html" class="nav__dropdown-item">Meet the Doctors</a>
+          <a href="about-clinic.html" class="nav__dropdown-item">About Our Clinic</a>
+          <a href="payment-options.html" class="nav__dropdown-item">Payment Options</a>
+          <a href="testimonials.html" class="nav__dropdown-item">Testimonials</a>
+          <a href="blog.html" class="nav__dropdown-item">Blog</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">Services</span>
+        <div class="nav__dropdown-menu">
+          <div class="nav__dropdown-submenu">
+            <a href="chiropractic-care.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Chiropractic Care</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="chiropractic-for-kids.html" class="nav__dropdown-item">Chiropractic for Kids</a>
+            </div>
+          </div>
+          <a href="dot-exams.html" class="nav__dropdown-item">DOT Exams</a>
+          <a href="cold-laser-therapy.html" class="nav__dropdown-item">Cold Laser Therapy</a>
+          <a href="decompression.html" class="nav__dropdown-item">Spinal Decompression</a>
+          <a href="pulsewave.html" class="nav__dropdown-item">PulseWave Therapy</a>
+          <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+          <a href="orthotics.html" class="nav__dropdown-item">Orthotics</a>
+          <a href="gut-health.html" class="nav__dropdown-item">Gut Health</a>
+          <a href="accident-injury.html" class="nav__dropdown-item">Accident Injury</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <span class="nav__link nav__dropdown-toggle">Conditions</span>
+        <div class="nav__dropdown-menu">
+          <a href="neuropathy.html" class="nav__dropdown-item">Neuropathy</a>
+          <a href="spine-related.html" class="nav__dropdown-item">Spine Related</a>
+          <a href="injuries.html" class="nav__dropdown-item">Injuries</a>
+          <div class="nav__dropdown-submenu">
+            <a href="extremities.html" class="nav__dropdown-item nav__dropdown-item--has-submenu">Extremities</a>
+            <div class="nav__dropdown-submenu-menu">
+              <a href="arm-and-leg-pain.html" class="nav__dropdown-item">Arm and Leg Pain</a>
+              <a href="carpal-tunnel.html" class="nav__dropdown-item">Carpal Tunnel</a>
+              <a href="knee-pain.html" class="nav__dropdown-item">Knee Pain</a>
+              <a href="shoulder-pain.html" class="nav__dropdown-item">Shoulder Pain</a>
+              <a href="plantar-fasciitis.html" class="nav__dropdown-item">Plantar Fasciitis</a>
+            </div>
+          </div>
+          <a href="other-conditions.html" class="nav__dropdown-item">Other Conditions</a>
+        </div>
+      </div>
+      <a href="reviews.html" class="nav__link">Review Us</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="tel:7177382555" class="btn btn--primary btn--nav">Book Now</a>
+    </div>
+
+    <button class="nav__toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Header (no image — centered text block on forest bg) -->
+  <section class="section section--dark" style="padding-top: clamp(140px, 18vh, 200px); padding-bottom: clamp(70px, 11vh, 110px);">
+    <div class="container">
+      <div class="section__header section__header--center fade-in" style="margin-bottom: 0;">
+        <div class="label">Blog &amp; Resources</div>
+        <h1 style="color: var(--color-cream); margin-bottom: 24px;">Plain-English Articles. Real Answers.</h1>
+        <p class="subtitle" style="margin: 0 auto 36px; color: rgba(245, 244, 238, 0.78);">Short reads from Dr. Parker on what's actually happening in your body — and what to do about it.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:7177382555" class="btn btn--call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 717-738-2555
+          </a>
+          <a href="contact.html" class="btn btn--white">Subscribe to Updates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="section__header section__header--center fade-in">
+        <div class="label">Articles &amp; Resources</div>
+        <h2>Plain-English reads<br>from Family Tree.</h2>
+        <p class="subtitle">Short articles on what's actually going on in your body — and what to do about it.</p>
+      </div>
+      <div class="feature-grid">
+
+        <a href="why-choose-chiropractic-care.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/why-choose-chiropractic-care.jpg" alt="Why Choose Chiropractic Care in Ephrata PA" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Why Choose Chiropractic Care in Ephrata PA</div>
+          <div class="feature-card__text">Chiropractic treatment is a viable solution for many different health issues. Whether you have a bulging disc in your back, debilitating back pain, or you suffer from severe headaches…</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="bulging-discs.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/bulging-discs.jpg" alt="Talking About Bulging Discs" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Talking About Bulging Discs</div>
+          <div class="feature-card__text">Have you ever heard of a slipped disc? It's a misnomer. Discs never "slip" — but they can bulge.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractors-helps-auto-accident-patients.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractors-helps-auto-accident-patients.jpg" alt="Chiropractic Helps Auto Accident Patients" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Chiropractic Helps Auto Accident Patients</div>
+          <div class="feature-card__text">If you're ever unlucky enough to be injured in a car accident, you may experience a strain on your neck muscles and the surrounding soft tissue.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractic-care-for-back-pain.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractic-care-for-back-pain.jpg" alt="Chiropractic Care for Back Pain" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Chiropractic Care for Back Pain</div>
+          <div class="feature-card__text">Chiropractic care can diagnose and treat problems that affect the nerves, muscles, bones, and joints of your body.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractic-clinic-discusses-different-types-headaches.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractic-clinic-discusses-different-types-headaches.jpg" alt="Different Types of Headaches" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Different Types of Headaches</div>
+          <div class="feature-card__text">There are many causes of headaches, and many types — but the most common headache treated by chiropractors is called the cervicogenic headache.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="why-injuries-respond-to-chiropractic-care.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/why-injuries-respond-to-chiropractic-care.jpg" alt="Why Injuries Respond to Chiropractic Care" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Why Injuries Respond to Chiropractic Care</div>
+          <div class="feature-card__text">No one ever plans to get injured, but injuries can happen at the spur of the moment and without warning.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="herniated-discs.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/herniated-discs.jpg" alt="Herniated Discs Explained" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Herniated Discs Explained</div>
+          <div class="feature-card__text">Herniated disc. Slipped disc. Bulging disc. Pinched nerve. You may have heard all these terms to describe severe pain felt in the back.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="proper-child-backpacks.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/proper-child-backpacks.jpg" alt="Proper Child Backpacks" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Proper Child Backpacks</div>
+          <div class="feature-card__text">Children grow so quickly. As they're growing, their bones and muscles are susceptible to temporary backaches, joint pain, and muscle strains.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="kids-see-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/kids-see-chiropractor.jpg" alt="Should Kids See a Chiropractor?" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Should Kids See a Chiropractor?</div>
+          <div class="feature-card__text">Many parents who want the best for their children's health are constantly looking for non-invasive ways to boost health and prevent degenerative conditions and pain.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="the-value-of-health.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/the-value-of-health.jpg" alt="The Value of Health" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">The Value of Health</div>
+          <div class="feature-card__text">The human body is designed to naturally repair itself — but it's an ability that's dependent on a healthy nervous system.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractic-treatment-for-car-accidents.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractic-treatment-for-car-accidents.jpg" alt="Chiropractic Treatment for Car Accidents" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Chiropractic Treatment for Car Accidents</div>
+          <div class="feature-card__text">If you're suffering from back or neck pain after even the most minor of car accidents, whiplash can lead to serious complications.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="sciatic-pain-helped-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/sciatic-pain-helped-chiropractor.jpg" alt="Sciatic Pain Helped by a Chiropractor" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Sciatic Pain Helped by a Chiropractor</div>
+          <div class="feature-card__text">Sciatica is a condition that's often misdiagnosed and attributed to any intense lower back pain.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="the-best-time-to-see-a-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/the-best-time-to-see-a-chiropractor.jpg" alt="The Best Time to See a Chiropractor" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">The Best Time to See a Chiropractor</div>
+          <div class="feature-card__text">Visiting a chiropractor isn't nearly as "alternative" as it used to be — and for good reason.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="poor-posture-can-be-improved-by-chiropractors.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/poor-posture-can-be-improved-by-chiropractors.jpg" alt="Poor Posture Can Be Improved" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Poor Posture Can Be Improved</div>
+          <div class="feature-card__text">Poor posture is something that affects a large portion of the population and causes a host of different physical ailments.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="migraine-tips-from-a-chiropractic-clinic.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/migraine-tips-from-a-chiropractic-clinic.jpg" alt="Migraine Tips" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Migraine Tips</div>
+          <div class="feature-card__text">If you're a migraine sufferer, you know just how painful and debilitating it can be when a migraine takes hold.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="time-to-improve-your-health.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/time-to-improve-your-health.jpg" alt="Time to Improve Your Health" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Time to Improve Your Health</div>
+          <div class="feature-card__text">Every year, hundreds — if not thousands — of people suffer some type of lower back injury.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="3-common-conditions-chiropractors-help.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/3-common-conditions-chiropractors-help.jpg" alt="3 Common Conditions Chiropractors Help" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">3 Common Conditions Chiropractors Help</div>
+          <div class="feature-card__text">Chiropractors are capable of treating all types of injuries and recognize the unique situation that each case presents.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="3-tips-from-your-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/3-tips-from-your-chiropractor.jpg" alt="3 Tips from Your Chiropractor" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">3 Tips from Your Chiropractor</div>
+          <div class="feature-card__text">Visit with purpose and exercise in between. Many people only visit a chiropractor because of an immediate need.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="5-reasons-to-choose-a-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/5-reasons-to-choose-a-chiropractor.jpg" alt="5 Reasons to Choose a Chiropractor" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">5 Reasons to Choose a Chiropractor</div>
+          <div class="feature-card__text">Our chiropractor can minimize stress and effectively correct desk-job injury, repetitive movement injury, or sports-related problems.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="are-you-looking-for-a-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/are-you-looking-for-a-chiropractor.jpg" alt="Are You Looking for a Chiropractor?" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Are You Looking for a Chiropractor?</div>
+          <div class="feature-card__text">Many people only start looking for a chiropractor when the pain becomes unmanageable or chronic.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="back-pain-tips-city-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/back-pain-tips-city-chiropractor.jpg" alt="Back Pain Tips" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Back Pain Tips</div>
+          <div class="feature-card__text">Six tips from our chiropractor to avoid back pain — starting with regular exercise and proper form.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="car-accident-tips-from-a-chiropractor.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/car-accident-tips-from-a-chiropractor.jpg" alt="Car Accident Tips" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Car Accident Tips</div>
+          <div class="feature-card__text">Even accidents at low speed that cause minimal damage at the scene can be potentially harmful.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractor-talks-about-headaches.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractor-talks-about-headaches.jpg" alt="Talking About Headaches" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Talking About Headaches</div>
+          <div class="feature-card__text">Nine out of ten North Americans suffer from headaches — but most don't know what's actually causing them.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractors-have-extensive-schooling.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractors-have-extensive-schooling.jpg" alt="Chiropractors Have Extensive Schooling" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Chiropractors Have Extensive Schooling</div>
+          <div class="feature-card__text">Your chiropractor has been through an incredible amount of training — comparable to most other medical professions.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="athletes-improve-with-chiropractic-care.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/athletes-improve-with-chiropractic-care.jpg" alt="Athletes Improve with Chiropractic Care" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">Athletes Improve with Chiropractic Care</div>
+          <div class="feature-card__text">"Chiropractic just makes you feel so much better. When I walk out of the clinic, I feel like I'm about three inches taller…" — Tom Brady.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+        <a href="chiropractic-clinic-describes-stretching.html" class="feature-card fade-in" style="text-decoration: none; display: block; padding: 0; overflow: hidden;">
+          <img src="blog-images/chiropractic-clinic-describes-stretching.jpg" alt="A Word on Stretching" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+          <div style="padding: 28px 32px 32px;">
+            <div class="feature-card__title">A Word on Stretching</div>
+          <div class="feature-card__text">Chiropractic treatment includes guidance on stretching and movements to increase blood flow. Low-impact, no special equipment required.</div>
+          <div style="margin-top: 16px; color: var(--color-gold); font-weight: var(--fw-semibold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;">Read Article →</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Block -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-block fade-in">
+        <h2>Have a question<br>not covered here?</h2>
+        <p class="subtitle">Pick up the phone. We'll answer it directly — and if it's a question other patients ask, we'll write the article.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:7177382555" class="btn btn--call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 717-738-2555
+          </a>
+          <a href="contact.html" class="btn btn--white">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" style="margin-bottom: 8px;">
+            <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+            <div class="nav__logo-text">
+              <span class="nav__logo-name">Family Tree</span>
+              <span class="nav__logo-sub">Chiropractic</span>
+              <span class="nav__logo-tag">Lancaster Neuropathy</span>
+            </div>
+          </a>
+          <p>We help people with chronic pain find the root cause and heal at the source — drug-free, non-surgical, and built for the life beyond the symptom.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Services</div>
+          <a href="neuropathy.html" class="footer__link">Neuropathy</a>
+          <a href="chiropractic-care.html" class="footer__link">Chiropractic Care</a>
+          <a href="cold-laser-therapy.html" class="footer__link">Cold Laser Therapy</a>
+          <a href="decompression.html" class="footer__link">Decompression</a>
+          <a href="pulsewave.html" class="footer__link">PulseWave Therapy</a>
+        </div>
+        <div>
+          <div class="footer__heading">More</div>
+          <a href="dot-exams.html" class="footer__link">DOT Exams</a>
+          <a href="accident-injury.html" class="footer__link">Accident Injury</a>
+          <a href="plantar-fasciitis.html" class="footer__link">Plantar Fasciitis</a>
+          <a href="gut-health.html" class="footer__link">Gut Health</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <a href="tel:7177382555" class="footer__link">Call: 717-738-2555</a>
+          <span class="footer__link">904 Dawn Ave.<br>Ephrata, PA 17522</span>
+          <span class="footer__link">Mon&ndash;Fri: 8am&ndash;6pm<br>Sat: 9am&ndash;1pm</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Family Tree Chiropractic. All rights reserved.</span>
+        <span>Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

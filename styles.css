@@ -212,7 +212,72 @@ p:last-child {
   font-size: 1.25rem;
   color: var(--text-dark);
   z-index: 1001;
+  background: linear-gradient(135deg, rgba(6, 35, 19, 0.85) 0%, rgba(6, 35, 19, 0.70) 60%, rgba(6, 35, 19, 0.55) 100%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  padding: 8px 18px 8px 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(180, 134, 43, 0.22);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
 }
+
+.nav__logo .nav__logo-name {
+  color: var(--color-cream);
+}
+
+/* Strip the pill panel from footer logos — they sit on forest already */
+.footer .nav__logo {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  gap: 16px;
+  transform: scale(0.85);
+  transform-origin: top left;
+}
+
+/* Footer logo: icon scales to match the full height of the text stack */
+.footer .nav__logo img {
+  width: 90px !important;
+  height: 90px !important;
+}
+
+.footer .nav__logo-name {
+  font-size: 1.65rem;
+}
+
+.footer .nav__logo-sub {
+  font-size: 0.93rem;
+}
+
+.footer .nav__logo-tag {
+  font-size: 0.87rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1px;
+}
+
+/* Two-leaf branch divider above "Lancaster Neuropathy" in the footer */
+.footer .nav__logo-tag::before {
+  content: '';
+  display: block;
+  width: 240px;
+  height: 28px;
+  margin-bottom: 0;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 28'><line x1='0' y1='13' x2='82' y2='13' stroke='%23B4862B' stroke-width='1'/><line x1='118' y1='13' x2='200' y2='13' stroke='%23B4862B' stroke-width='1'/><line x1='100' y1='22' x2='100' y2='17' stroke='%23B4862B' stroke-width='1'/><g transform='translate(100 17)'><path d='M 0 0 Q 6 -7 0 -14 Q -6 -7 0 0 Z' fill='%23B4862B' transform='rotate(-30)'/><path d='M 0 0 Q 6 -7 0 -14 Q -6 -7 0 0 Z' fill='%23B4862B' transform='rotate(30)'/></g></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.footer .nav__logo-sub::before,
+.footer .nav__logo-sub::after {
+  width: 27px;
+}
+
 
 .nav__logo svg {
   width: 40px;
@@ -222,6 +287,8 @@ p:last-child {
 .nav__logo-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   line-height: 1.1;
 }
 
@@ -234,12 +301,34 @@ p:last-child {
 }
 
 .nav__logo-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-primary);
   font-weight: var(--fw-medium);
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.24em;
   color: var(--color-gold);
+}
+
+.nav__logo-sub::before,
+.nav__logo-sub::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+}
+
+.nav__logo-tag {
+  font-family: var(--font-primary);
+  font-weight: var(--fw-medium);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-cream);
+  opacity: 0.9;
+  margin-top: 4px;
 }
 
 .nav__links {
@@ -338,6 +427,48 @@ p:last-child {
 .nav__dropdown-item:hover {
   background: var(--bg-primary);
   color: var(--color-forest);
+}
+
+/* Nested submenu (e.g. Chiropractic Care → Chiropractic for Kids) */
+.nav__dropdown-submenu {
+  position: relative;
+}
+
+.nav__dropdown-item--has-submenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav__dropdown-item--has-submenu::after {
+  content: '›';
+  font-size: 1.15rem;
+  line-height: 1;
+  opacity: 0.55;
+  margin-left: auto;
+}
+
+.nav__dropdown-submenu-menu {
+  position: absolute;
+  top: -12px;
+  left: calc(100% + 6px);
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 12px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-6px);
+  transition: all var(--transition);
+  border: 1px solid var(--border-light);
+}
+
+.nav__dropdown-submenu:hover > .nav__dropdown-submenu-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 /* Mobile nav toggle */
@@ -511,9 +642,49 @@ p:last-child {
   flex-wrap: wrap;
 }
 
-/* Service page hero (shorter) */
+/* Service page hero — taller, top-aligned for the floating green panel */
 .hero--service {
-  min-height: 60vh;
+  min-height: 72vh;
+  align-items: flex-start;
+}
+
+.hero--service .hero__content {
+  background: linear-gradient(135deg, rgba(6, 35, 19, 0.85) 0%, rgba(6, 35, 19, 0.70) 60%, rgba(6, 35, 19, 0.55) 100%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: var(--color-cream);
+  padding: clamp(40px, 4vw, 56px) clamp(32px, 4vw, 52px);
+  border-radius: 18px;
+  max-width: 720px;
+  width: auto;
+  margin: clamp(96px, 10vh, 130px) clamp(28px, 6vw, 88px) clamp(40px, 6vh, 70px) clamp(16px, 3vw, 40px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(180, 134, 43, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero--service .hero__content .label {
+  margin-bottom: 0;
+}
+
+.hero--service .hero__content h1 {
+  line-height: 1.05;
+  margin: 0;
+}
+
+.hero--service .hero__content .subtitle {
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .hero--service .hero__content {
+    padding: clamp(28px, 6vw, 44px) clamp(24px, 5vw, 36px);
+    margin: clamp(80px, 11vh, 110px) clamp(14px, 4vw, 28px) clamp(36px, 6vh, 60px) clamp(14px, 4vw, 28px);
+    gap: 12px;
+  }
 }
 
 /* --- Sections --- */
@@ -660,21 +831,18 @@ p:last-child {
 .service-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(17, 44, 34, 0.85) 0%,
-    rgba(17, 44, 34, 0.30) 50%,
-    rgba(17, 44, 34, 0.05) 100%
-  );
+  background: transparent;
 }
 
 .service-card__content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px 24px;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  padding: 18px 22px;
   color: var(--color-cream);
+  background: linear-gradient(135deg, rgba(6, 35, 19, 0.85) 0%, rgba(6, 35, 19, 0.70) 60%, rgba(6, 35, 19, 0.55) 100%);
+  border-radius: 12px;
 }
 
 .service-card__title {
@@ -786,7 +954,7 @@ p:last-child {
 .testimonial__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(17, 44, 34, 0.82);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .testimonial__content {
