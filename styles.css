@@ -495,6 +495,22 @@ p:last-child {
   background: var(--color-forest);
 }
 
+.nav__toggle--active span {
+  background: var(--color-forest);
+}
+
+.nav__toggle--active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle--active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle--active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* --- Buttons --- */
 .btn {
   display: inline-flex;
@@ -550,19 +566,20 @@ p:last-child {
 }
 
 .btn--call {
-  background: var(--color-gold);
+  background: #FFD23F;
   color: var(--color-forest);
   font-size: 1rem;
   padding: 18px 42px;
   letter-spacing: 0.08em;
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.52);
   animation: pulse-btn 2.6s ease-in-out infinite;
 }
 
 .btn--call:hover {
-  background: var(--color-gold-soft);
+  background: #FFE066;
   color: var(--color-forest);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(180, 134, 43, 0.42);
+  box-shadow: 0 8px 30px rgba(255, 210, 63, 0.42);
   animation: none;
 }
 
@@ -577,8 +594,16 @@ p:last-child {
 }
 
 @keyframes pulse-btn {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(180, 134, 43, 0.45); }
-  50% { box-shadow: 0 0 0 14px rgba(180, 134, 43, 0); }
+  0%, 100% {
+    box-shadow:
+      0 0 28px rgba(255, 210, 63, 0.52),
+      0 0 0 0 rgba(255, 210, 63, 0.48);
+  }
+  50% {
+    box-shadow:
+      0 0 36px rgba(255, 210, 63, 0.62),
+      0 0 0 16px rgba(255, 210, 63, 0);
+  }
 }
 
 /* --- Hero Section --- */
@@ -594,6 +619,12 @@ p:last-child {
   position: absolute;
   inset: 0;
   z-index: 0;
+}
+
+.hero__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero__bg img {
@@ -629,11 +660,56 @@ p:last-child {
   max-width: 800px;
 }
 
+.hero__content--home {
+  padding-top: 66vh;
+}
+
+.hero__headline {
+  max-width: none;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.hero__intro {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero__content .hero__message {
+  flex: 1 1 320px;
+  margin-bottom: 0;
+  color: #FFFFFF;
+}
+
+.hero__call {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  padding: 22px 50px;
+}
+
 .hero__content .subtitle {
   color: rgba(245, 244, 238, 0.95);
   margin-bottom: 40px;
   max-width: 560px;
   font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.hero__content .hero__headline {
+  max-width: none;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  font-size: clamp(2.99rem, 6.9vw, 5.75rem);
+  text-shadow:
+    0 2px 4px rgba(17, 44, 34, 0.95),
+    0 6px 14px rgba(17, 44, 34, 0.78),
+    0 12px 36px rgba(17, 44, 34, 0.62);
+}
+
+.hero__content .subtitle.hero__message {
+  margin-bottom: 0;
+  color: #FFFFFF;
 }
 
 .hero__message-backdrop {
@@ -1215,6 +1291,8 @@ p:last-child {
     padding: 100px 40px 40px;
     gap: 24px;
     z-index: 1000;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .nav__links--open .nav__link {
@@ -1230,6 +1308,17 @@ p:last-child {
     opacity: 1;
     visibility: visible;
     padding-left: 20px;
+    background: transparent;
+    border: none;
+  }
+
+  .nav__links--open .nav__dropdown-submenu-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    padding: 4px 0 4px 18px;
     background: transparent;
     border: none;
   }
@@ -1250,7 +1339,56 @@ p:last-child {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 85vh;
+    min-height: 100svh;
+    align-items: flex-end;
+  }
+
+  .hero__bg img {
+    object-position: center 42%;
+  }
+
+  .hero__content--home {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100svh;
+    padding-top: 124px;
+    padding-bottom: 34px;
+  }
+
+  .hero__content .hero__headline {
+    white-space: normal;
+    max-width: 11ch;
+    font-size: clamp(2.59rem, 12.65vw, 3.45rem);
+    line-height: 1.03;
+    margin-bottom: 18px;
+    text-wrap: balance;
+  }
+
+  .hero__intro {
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .hero__content .hero__message {
+    flex: 1 1 100%;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .hero__content .hero__message-backdrop {
+    border-radius: 18px;
+    padding: 18px 20px;
+  }
+
+  .hero__intro .hero__call {
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: 58px;
+    padding: 16px 22px;
+    font-size: 1rem;
+    white-space: normal;
   }
 
   .hero--service {
@@ -1260,6 +1398,16 @@ p:last-child {
   .hero__buttons {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .fade-in-left,
+  .fade-in-right {
+    transform: translateY(30px);
+  }
+
+  .fade-in-left.visible,
+  .fade-in-right.visible {
+    transform: translateY(0);
   }
 
   .stats {
@@ -1289,11 +1437,108 @@ p:last-child {
   .nav--scrolled {
     padding: 12px 20px;
   }
+
+  .nav__links--open {
+    padding: 104px 24px 32px;
+    gap: 18px;
+  }
+
+  .nav__links--open .nav__link {
+    font-size: 1.25rem;
+  }
+
+  .nav__links--open .nav__dropdown-menu {
+    padding: 8px 0 0 14px;
+    min-width: 0;
+  }
+
+  .nav__dropdown-item {
+    padding: 8px 12px;
+  }
 }
 
 @media (max-width: 480px) {
+  .nav__logo {
+    gap: 8px;
+    padding: 7px 14px 7px 7px;
+  }
+
+  .nav__logo-name {
+    font-size: 1rem;
+  }
+
+  .nav__logo-sub {
+    gap: 6px;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+  }
+
+  .nav__logo-sub::before,
+  .nav__logo-sub::after {
+    width: 14px;
+  }
+
+  .nav__logo-tag {
+    font-size: 0.51rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero__content--home {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .service-card {
     flex: 0 0 260px;
     height: 340px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav {
+    padding: 14px;
+  }
+
+  .nav--scrolled {
+    padding: 10px 14px;
+  }
+
+  .nav__logo {
+    max-width: calc(100vw - 82px);
+    gap: 6px;
+    padding: 6px 10px 6px 6px;
+  }
+
+  .nav__logo img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .nav__logo-text {
+    min-width: 0;
+  }
+
+  .nav__logo-name {
+    font-size: 0.88rem;
+  }
+
+  .nav__logo-sub {
+    font-size: 0.47rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav__logo-sub::before,
+  .nav__logo-sub::after {
+    display: none;
+  }
+
+  .nav__logo-tag {
+    font-size: 0.44rem;
+    letter-spacing: 0.13em;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
