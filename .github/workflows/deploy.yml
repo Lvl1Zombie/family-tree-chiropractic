@@ -57,6 +57,8 @@ jobs:
             cp -a blog-images deploy/
           fi
 
+          printf '%s\n' "$GITHUB_SHA" > deploy/deploy-version.txt
+
           test -s deploy/index.html
           test -s deploy/styles.css
           test -s deploy/main.js
@@ -107,26 +109,27 @@ jobs:
             "$DEPLOY_USER@198.12.239.95" \
             "tar -xzf '$archive' -C public_html && rm -f '$archive'"
 
-      - name: Verify live homepage
+      - name: Verify live website
         shell: bash
         run: |
           set -euo pipefail
 
           for attempt in {1..6}; do
-            if curl \
+            deployed_version="$(curl \
               --fail \
               --silent \
               --show-error \
               --max-time 20 \
-              "https://ephratachiropractic.com/?deploy=${GITHUB_SHA}-${attempt}" \
-              --output live-index.html && \
-              cmp --silent deploy/index.html live-index.html; then
-              echo 'The live homepage matches this commit.'
+              "https://ephratachiropractic.com/deploy-version.txt?check=${GITHUB_SHA}-${attempt}" \
+              || true)"
+
+            if [[ "$deployed_version" == "$GITHUB_SHA" ]]; then
+              echo 'The live website is serving this commit.'
               exit 0
             fi
 
             sleep 10
           done
 
-          echo 'The live homepage did not match the deployed commit.' >&2
+          echo 'The live website is not serving the deployed commit.' >&2
           exit 1
