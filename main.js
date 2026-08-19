@@ -202,6 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Pending static form behavior ---
+  document.querySelectorAll('form[data-form-pending="true"]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = form.querySelector('.form-note--status');
+      if (status) {
+        status.textContent = 'Online message delivery is being connected. Please call 717-738-2555 and we will help you directly.';
+      }
+    });
+  });
+
   // --- Animate stat numbers on scroll ---
   const statNumbers = document.querySelectorAll('.stat__number[data-count]');
   if (statNumbers.length) {
