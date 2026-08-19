@@ -687,6 +687,7 @@ p:last-child {
   flex-shrink: 0;
   font-size: 1.25rem;
   padding: 22px 50px;
+  margin-top: -3px;
 }
 
 .hero__content .subtitle {
@@ -1574,6 +1575,7 @@ p:last-child {
     padding: 16px 22px;
     font-size: 1rem;
     white-space: normal;
+    margin-top: 0;
   }
 
   .hero--service {
