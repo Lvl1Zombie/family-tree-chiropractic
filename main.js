@@ -59,6 +59,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Desktop contact panel for the primary call buttons ---
+  const callTriggers = document.querySelectorAll(
+    '.nav .btn--nav[href^="tel:"], .hero .hero__call[href^="tel:"]'
+  );
+
+  if (callTriggers.length) {
+    const desktopCallPanel = window.matchMedia('(min-width: 769px)');
+    const panelOverlay = document.createElement('div');
+    panelOverlay.className = 'contact-panel-overlay';
+    panelOverlay.setAttribute('aria-hidden', 'true');
+    panelOverlay.innerHTML = `
+      <section class="contact-panel" role="dialog" aria-modal="true" aria-labelledby="contact-panel-title">
+        <button class="contact-panel__close" type="button" aria-label="Close contact panel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        <p class="contact-panel__eyebrow">Family Tree Chiropractic</p>
+        <h2 id="contact-panel-title">Let&rsquo;s get you feeling better.</h2>
+        <div class="contact-panel__details">
+          <a class="contact-panel__detail" href="tel:7177382555">
+            <span class="contact-panel__icon" aria-hidden="true">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.92.36 1.82.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.99.34 1.89.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <span><small>Call us</small><strong>717-738-2555</strong></span>
+          </a>
+          <a class="contact-panel__detail" href="https://www.google.com/maps/search/?api=1&amp;query=904+Dawn+Ave%2C+Ephrata%2C+PA+17522" target="_blank" rel="noopener">
+            <span class="contact-panel__icon" aria-hidden="true">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+              </svg>
+            </span>
+            <span><small>Visit us</small><strong>904 Dawn Ave.<br>Ephrata, PA 17522</strong></span>
+          </a>
+        </div>
+      </section>
+    `;
+    document.body.appendChild(panelOverlay);
+
+    const panel = panelOverlay.querySelector('.contact-panel');
+    const closeButton = panelOverlay.querySelector('.contact-panel__close');
+    let activeTrigger = null;
+
+    const openContactPanel = (trigger) => {
+      activeTrigger = trigger;
+      panelOverlay.classList.add('contact-panel-overlay--open');
+      panelOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('contact-panel-open');
+      requestAnimationFrame(() => closeButton.focus());
+    };
+
+    const closeContactPanel = () => {
+      if (!panelOverlay.classList.contains('contact-panel-overlay--open')) return;
+      panelOverlay.classList.remove('contact-panel-overlay--open');
+      panelOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('contact-panel-open');
+      if (activeTrigger) activeTrigger.focus();
+      activeTrigger = null;
+    };
+
+    callTriggers.forEach((trigger) => {
+      trigger.setAttribute('aria-haspopup', 'dialog');
+      trigger.addEventListener('click', (event) => {
+        if (!desktopCallPanel.matches) return;
+        event.preventDefault();
+        openContactPanel(trigger);
+      });
+    });
+
+    closeButton.addEventListener('click', closeContactPanel);
+    panelOverlay.addEventListener('click', (event) => {
+      if (event.target === panelOverlay) closeContactPanel();
+    });
+    panel.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const focusable = panel.querySelectorAll('a[href], button:not([disabled])');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeContactPanel();
+    });
+    desktopCallPanel.addEventListener('change', (event) => {
+      if (!event.matches) closeContactPanel();
+    });
+  }
+
   // --- Parallax hero background ---
   const heroBg = document.querySelector('.hero__bg');
   if (heroBg) {
