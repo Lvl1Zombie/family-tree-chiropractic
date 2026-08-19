@@ -1,0 +1,132 @@
+name: Deploy production website
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Upload to GoDaddy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build public website bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p deploy
+          find . -maxdepth 1 -type f \
+            \( \
+              -name '*.html' -o \
+              -name '*.css' -o \
+              -name '*.xml' -o \
+              -name '*.txt' -o \
+              -name '*.png' -o \
+              -name '*.jpg' -o \
+              -name '*.jpeg' -o \
+              -name '*.webp' -o \
+              -name '*.svg' -o \
+              -name '*.ico' -o \
+              -name '*.gif' -o \
+              -name '*.avif' -o \
+              -name '*.woff' -o \
+              -name '*.woff2' -o \
+              -name '*.pdf' -o \
+              -name '*.mp4' -o \
+              -name '*.webm' -o \
+              -name '.htaccess' -o \
+              -name 'main.js' \
+            \) \
+            -exec cp -p '{}' deploy/ \;
+
+          if [[ -d blog-images ]]; then
+            cp -a blog-images deploy/
+          fi
+
+          test -s deploy/index.html
+          test -s deploy/styles.css
+          test -s deploy/main.js
+
+      - name: Deploy over SSH
+        shell: bash
+        env:
+          DEPLOY_USER: ${{ secrets.SFTP_USERNAME }}
+          SSHPASS: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$DEPLOY_USER" || -z "$SSHPASS" ]]; then
+            echo 'SFTP_USERNAME and SFTP_PASSWORD must be configured as repository secrets.' >&2
+            exit 1
+          fi
+
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends sshpass
+
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' \
+            '198.12.239.95 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB77FXgATYcVRiSjNB5dph/YT0705I0XbzLzQviwAEyP' \
+            > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+          archive="site-${GITHUB_SHA}.tar.gz"
+          tar -C deploy -czf "$archive" .
+
+          sshpass -e ssh \
+            -p 22 \
+            -o BatchMode=no \
+            -o StrictHostKeyChecking=yes \
+            "$DEPLOY_USER@198.12.239.95" \
+            'test -d public_html'
+
+          sshpass -e scp \
+            -P 22 \
+            -o BatchMode=no \
+            -o StrictHostKeyChecking=yes \
+            "$archive" \
+            "$DEPLOY_USER@198.12.239.95:$archive"
+
+          sshpass -e ssh \
+            -p 22 \
+            -o BatchMode=no \
+            -o StrictHostKeyChecking=yes \
+            "$DEPLOY_USER@198.12.239.95" \
+            "tar -xzf '$archive' -C public_html && rm -f '$archive'"
+
+      - name: Verify live homepage
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for attempt in {1..6}; do
+            if curl \
+              --fail \
+              --silent \
+              --show-error \
+              --max-time 20 \
+              "https://ephratachiropractic.com/?deploy=${GITHUB_SHA}-${attempt}" \
+              --output live-index.html && \
+              cmp --silent deploy/index.html live-index.html; then
+              echo 'The live homepage matches this commit.'
+              exit 0
+            fi
+
+            sleep 10
+          done
+
+          echo 'The live homepage did not match the deployed commit.' >&2
+          exit 1
