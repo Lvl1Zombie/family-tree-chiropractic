@@ -10,6 +10,48 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Preserve search equity from the former domain with one-to-one redirects.
+  # These rules become active when that domain is attached to this hosting
+  # account; email-related DNS records are unaffected.
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^$ https://ephratachiropractic.com/ [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^us/?$ https://ephratachiropractic.com/meet-the-doctors.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^about-us/?$ https://ephratachiropractic.com/about-clinic.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^services/?$ https://ephratachiropractic.com/chiropractic-care.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^chiropractic-care-kids/?$ https://ephratachiropractic.com/chiropractic-for-kids.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^(cdl-exams|dot-physicals)/?$ https://ephratachiropractic.com/dot-exams.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^accident-injury-treatments/?$ https://ephratachiropractic.com/accident-injury.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^headaches-migraines/?$ https://ephratachiropractic.com/headaches-and-migraines.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^review-us/?$ https://ephratachiropractic.com/reviews.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^healthcare-disclaimer/?$ https://ephratachiropractic.com/hipaa-notice.html [R=301,L]
+
+  # Redirect unchanged slugs only when a real destination file exists.
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ https://ephratachiropractic.com/$1.html [R=301,L]
+
+  # Retire unknown legacy URLs instead of sending Google to an irrelevant page.
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^ - [G,L]
+
   # Redirect www -> non-www (https) in one hop.
   RewriteCond %{HTTP_HOST} ^www\.ephratachiropractic\.com [NC]
   RewriteRule ^(.*)$ https://ephratachiropractic.com/$1 [R=301,L]

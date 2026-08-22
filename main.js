@@ -3,7 +3,29 @@
    Scroll animations, navigation, interactions
    ============================================ */
 
+// Google Analytics 4. Events are deliberately limited to non-sensitive
+// navigation signals; no form values or medical information are transmitted.
+const GA_MEASUREMENT_ID = 'G-9S9C7VCR96';
+window.dataLayer = window.dataLayer || [];
+function gtag() { window.dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', GA_MEASUREMENT_ID);
+
+const googleTag = document.createElement('script');
+googleTag.async = true;
+googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+document.head.appendChild(googleTag);
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Privacy-safe call conversion tracking ---
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      gtag('event', 'click_to_call', {
+        transport_type: 'beacon'
+      });
+    });
+  });
 
   // --- Scroll-triggered fade-in animations ---
   const observerOptions = {
