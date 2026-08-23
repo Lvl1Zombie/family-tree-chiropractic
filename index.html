@@ -8,8 +8,9 @@
   <meta name="keywords" content="chiropractor, chiropractic care, neuropathy treatment, cold laser therapy, spinal decompression, DOT physical, accident injury, PulseWave therapy, plantar fasciitis, gut health">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=contact-panel-v1">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=optional" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="styles.css?v=google-reviews-v1">
   <link rel="canonical" href="https://ephratachiropractic.com/">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -75,7 +76,7 @@
   <!-- Navigation -->
   <nav class="nav">
     <a href="index.html" class="nav__logo">
-      <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+      <img src="logo.webp" alt="Family Tree Chiropractic logo" width="137" height="143" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
       <div class="nav__logo-text">
         <span class="nav__logo-name">Family Tree</span>
         <span class="nav__logo-sub">Chiropractic</span>
@@ -171,8 +172,12 @@
   <section class="hero">
     <div class="hero__bg">
       <picture>
-        <source media="(max-width: 768px)" srcset="hero-mobile-family-new.jpeg">
-        <img src="hero-bg.jpeg" alt="Happy family enjoying life together" loading="eager">
+        <source media="(max-width: 768px)" type="image/avif" srcset="hero-mobile-480.avif 480w, hero-mobile-768.avif 768w, hero-mobile-960.avif 960w" sizes="100vw" width="960" height="1720">
+        <source type="image/avif" srcset="hero-desktop-1280.avif 1280w, hero-desktop-1920.avif 1920w" sizes="100vw" width="1920" height="814">
+        <source media="(max-width: 768px)" type="image/webp" srcset="hero-mobile-480.webp 480w, hero-mobile-768.webp 768w, hero-mobile-960.webp 960w" sizes="100vw" width="960" height="1720">
+        <source type="image/webp" srcset="hero-desktop-1280.webp 1280w, hero-desktop-1920.webp 1920w" sizes="100vw" width="1920" height="814">
+        <source media="(max-width: 768px)" srcset="hero-mobile-family-new.jpeg" width="3072" height="5504">
+        <img src="hero-bg.jpeg" alt="Happy family enjoying life together" width="4096" height="1737" loading="eager" fetchpriority="high">
       </picture>
     </div>
     <div class="hero__content hero__content--home">
@@ -211,6 +216,92 @@
     </div>
   </section>
 
+  <!-- Google Reviews -->
+  <section class="google-reviews" aria-labelledby="google-reviews-title">
+    <div class="container">
+      <div class="google-reviews__header fade-in">
+        <div>
+          <div class="label">Real Stories. Real Results.</div>
+          <h2 id="google-reviews-title">Why patients trust Family Tree.</h2>
+        </div>
+        <a class="google-reviews__summary" href="https://www.google.com/search?q=Family+Tree+Chiropractic+Ephrata+PA" target="_blank" rel="noopener" aria-label="Read all 385 Google reviews for Family Tree Chiropractic">
+          <span class="google-reviews__source"><span class="google-reviews__g" aria-hidden="true">G</span> Google</span>
+          <span class="google-reviews__score">4.9</span>
+          <span class="google-reviews__stars" aria-hidden="true">★★★★★</span>
+          <span class="google-reviews__count">385 reviews <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+
+      <div class="google-reviews__grid">
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“Very happy with this place friendly staff great doctors”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">DG</span>
+            <span><strong>Dave Gehman</strong><small>Google review</small></span>
+          </footer>
+        </article>
+
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“If you want friendly service and good honest people, look no further.”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">CD</span>
+            <span><strong>Corey Dodd</strong><small>Google review</small></span>
+          </footer>
+        </article>
+
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“DR. Parker is extremely nice to work with and remembers all the small details.”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">BP</span>
+            <span><strong>Brandon Przybyski</strong><small>Google review</small></span>
+          </footer>
+        </article>
+
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“I can’t say enough good things about this Family Practice and Dr. Parker!”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">RD</span>
+            <span><strong>Ruth Demidovich</strong><small>Google review</small></span>
+          </footer>
+        </article>
+
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“Great place for DOT Physical very friendly atmosphere friendly people highly recommend this place!”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">JT</span>
+            <span><strong>Joe Todd</strong><small>Google review</small></span>
+          </footer>
+        </article>
+
+        <article class="google-review-card fade-in">
+          <div class="google-review-card__stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="google-review-card__quote">
+            <p>“Everyone is very friendly. Dr. Parker is amazing and passionate about what he does for others.”</p>
+          </blockquote>
+          <footer class="google-review-card__author">
+            <span class="google-review-card__avatar" aria-hidden="true">CB</span>
+            <span><strong>Cynthia Bennethum</strong><small>Google review</small></span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Carousel -->
   <section class="section">
     <div class="container">
@@ -224,7 +315,7 @@
       <div class="services-carousel fade-in">
         <div class="services-carousel__track">
         <a href="neuropathy.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('neuropathy-card.jpeg')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="neuropathy-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Neuropathy</div>
@@ -232,7 +323,7 @@
           </div>
         </a>
         <a href="chiropractic-care.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('chiro-care-card.webp')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="chiro-care-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Chiropractic Care</div>
@@ -240,7 +331,7 @@
           </div>
         </a>
         <a href="cold-laser-therapy.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('cold-laser-card-lightforce.webp')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="cold-laser-card-lightforce-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Cold Laser Therapy</div>
@@ -248,7 +339,7 @@
           </div>
         </a>
         <a href="decompression.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('decompression-card.jpeg')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="decompression-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Spinal Decompression</div>
@@ -256,7 +347,7 @@
           </div>
         </a>
         <a href="pulsewave.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('pulsewave-card.jpeg')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="pulsewave-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">PulseWave Therapy</div>
@@ -264,7 +355,7 @@
           </div>
         </a>
         <a href="dot-exams.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('dot-card.webp')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="dot-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">DOT Exams</div>
@@ -272,7 +363,7 @@
           </div>
         </a>
         <a href="accident-injury.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('accident-card.webp')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="accident-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Accident Injury</div>
@@ -280,7 +371,7 @@
           </div>
         </a>
         <a href="plantar-fasciitis.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('plantar-card.jpeg')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="plantar-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Plantar Fasciitis</div>
@@ -288,7 +379,7 @@
           </div>
         </a>
         <a href="gut-health.html" class="service-card">
-          <div class="service-card__bg" style="background-image: url('gut-health-card.jpeg')"></div>
+          <img class="service-card__bg lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="gut-health-card-opt.webp" alt="" width="449" height="449" decoding="async">
           <div class="service-card__overlay"></div>
           <div class="service-card__content">
             <div class="service-card__title">Gut Health</div>
@@ -313,7 +404,10 @@
           <p>Dr. David Parker has spent 30 years doing this work — and the science behind it has only gotten sharper. We use it every day.</p>
         </div>
         <div class="split__image fade-in-right">
-          <img src="about-restore.jpg" alt="Family Tree Chiropractic clinic building in Ephrata, PA" style="aspect-ratio: 4/5; border-radius: var(--radius-lg);">
+          <picture>
+            <source type="image/webp" data-srcset="about-restore-480.webp 480w, about-restore-780.webp 780w" sizes="(max-width: 768px) calc(100vw - 40px), 50vw">
+            <img class="lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="about-restore.jpg" alt="Family Tree Chiropractic clinic building in Ephrata, PA" width="780" height="900" decoding="async" style="aspect-ratio: 4/5; border-radius: var(--radius-lg);">
+          </picture>
         </div>
       </div>
     </div>
@@ -363,7 +457,10 @@
   <!-- Testimonial -->
   <section class="testimonial">
     <div class="testimonial__bg">
-      <img src="testimonial-bg.jpg" alt="Grandparents swinging a grandchild between them on an autumn walk">
+      <picture>
+        <source type="image/webp" data-srcset="testimonial-bg-768.webp 768w, testimonial-bg-1376.webp 1376w" sizes="100vw">
+        <img class="lazy-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="testimonial-bg.jpg" alt="Grandparents swinging a grandchild between them on an autumn walk" width="1376" height="768" decoding="async">
+      </picture>
     </div>
     <div class="testimonial__overlay"></div>
     <div class="testimonial__content fade-in">
@@ -395,7 +492,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="index.html" class="nav__logo" style="margin-bottom: 8px;">
-            <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
+            <img src="logo.webp" alt="Family Tree Chiropractic logo" width="137" height="143" loading="lazy" decoding="async" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
             <div class="nav__logo-text">
               <span class="nav__logo-name">Family Tree</span>
               <span class="nav__logo-sub">Chiropractic</span>
@@ -447,6 +544,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=contact-panel-v1"></script>
+  <script src="main.js?v=perf-v1"></script>
 </body>
 </html>

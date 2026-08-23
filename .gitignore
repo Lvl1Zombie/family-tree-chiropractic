@@ -1,4 +1,3 @@
 node_modules/
 .claude/
-.local-server.log
-.local-server.err.log
+.local-server*.log

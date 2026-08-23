@@ -8,13 +8,28 @@
 const GA_MEASUREMENT_ID = 'G-9S9C7VCR96';
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', GA_MEASUREMENT_ID);
+let analyticsLoaded = false;
 
-const googleTag = document.createElement('script');
-googleTag.async = true;
-googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-document.head.appendChild(googleTag);
+function loadAnalytics() {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+
+  const googleTag = document.createElement('script');
+  googleTag.async = true;
+  googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(googleTag);
+}
+
+// Keep analytics off the critical rendering path while still capturing
+// engaged visitors and normal sessions.
+['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
+  window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
+});
+window.addEventListener('load', () => {
+  window.setTimeout(loadAnalytics, 4000);
+}, { once: true });
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -46,18 +61,45 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeObserver.observe(el);
   });
 
+  // Load below-the-fold imagery only when it is actually close to view.
+  // Native lazy-loading intentionally uses a generous distance threshold,
+  // which caused every carousel image to compete with the hero on first load.
+  const lazyMedia = document.querySelectorAll('img.lazy-media[data-src]');
+  const loadMedia = (img) => {
+    const picture = img.closest('picture');
+    if (picture) {
+      picture.querySelectorAll('source[data-srcset]').forEach((source) => {
+        source.srcset = source.dataset.srcset;
+        source.removeAttribute('data-srcset');
+      });
+    }
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+    img.classList.remove('lazy-media');
+  };
+
+  if ('IntersectionObserver' in window) {
+    const mediaObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadMedia(entry.target);
+        mediaObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '300px 0px' });
+    lazyMedia.forEach((img) => mediaObserver.observe(img));
+  } else {
+    lazyMedia.forEach(loadMedia);
+  }
+
   // --- Navbar scroll behavior ---
   const nav = document.querySelector('.nav');
   if (nav) {
-    let lastScroll = 0;
+    let isScrolled = false;
     window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 60) {
-        nav.classList.add('nav--scrolled');
-      } else {
-        nav.classList.remove('nav--scrolled');
-      }
-      lastScroll = currentScroll;
+      const nextScrolled = window.scrollY > 60;
+      if (nextScrolled === isScrolled) return;
+      isScrolled = nextScrolled;
+      nav.classList.toggle('nav--scrolled', isScrolled);
     }, { passive: true });
   }
 
@@ -179,12 +221,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Parallax hero background ---
   const heroBg = document.querySelector('.hero__bg');
-  if (heroBg) {
+  const parallaxAllowed = window.matchMedia('(min-width: 769px) and (prefers-reduced-motion: no-preference)');
+  if (heroBg && parallaxAllowed.matches) {
+    let heroFrame = null;
     window.addEventListener('scroll', () => {
-      const scroll = window.scrollY;
-      if (scroll < window.innerHeight) {
-        heroBg.style.transform = `translateY(${scroll * 0.3}px)`;
-      }
+      if (heroFrame !== null) return;
+      heroFrame = requestAnimationFrame(() => {
+        const scroll = window.scrollY;
+        if (scroll < window.innerHeight) {
+          heroBg.style.transform = `translateY(${scroll * 0.3}px)`;
+        }
+        heroFrame = null;
+      });
     }, { passive: true });
   }
 
@@ -203,25 +251,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let prevX = 0;
     let prevTime = 0;
     let rafId = null;
+    let maxScroll = 0;
 
-    // Calculate bounds
-    function getMaxScroll() {
-      return Math.max(0, track.scrollWidth - carousel.clientWidth);
+    function updateBounds() {
+      maxScroll = Math.max(0, track.scrollWidth - carousel.clientWidth);
+      target = Math.max(-maxScroll, Math.min(0, target));
+      pos = Math.max(-maxScroll, Math.min(0, pos));
     }
 
-    // Smooth animation loop — runs continuously for butter
+    function startAnimation() {
+      if (rafId === null) rafId = requestAnimationFrame(animate);
+    }
+
+    // Only animate while the carousel is moving. The previous perpetual loop
+    // forced a layout read and style write every frame, even while idle.
     function animate() {
-      // Ease toward target
       pos += (target - pos) * 0.08;
-      // Clamp
-      const max = getMaxScroll();
-      if (target < -max) target = -max;
+      if (target < -maxScroll) target = -maxScroll;
       if (target > 0) target = 0;
       if (Math.abs(pos - target) < 0.5) pos = target;
       track.style.transform = `translate3d(${pos}px, 0, 0)`;
-      rafId = requestAnimationFrame(animate);
+
+      if (isDragging || pos !== target) {
+        rafId = requestAnimationFrame(animate);
+      } else {
+        rafId = null;
+      }
     }
-    rafId = requestAnimationFrame(animate);
+
+    updateBounds();
+    const resizeObserver = new ResizeObserver(updateBounds);
+    resizeObserver.observe(carousel);
+    resizeObserver.observe(track);
 
     // Mouse drag
     carousel.addEventListener('mousedown', (e) => {
@@ -231,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
       velocity = 0;
       prevX = e.clientX;
       prevTime = Date.now();
+      startAnimation();
       e.preventDefault();
     });
 
@@ -243,18 +305,17 @@ document.addEventListener('DOMContentLoaded', () => {
       prevX = e.clientX;
       prevTime = now;
       target = startPos + dx;
+      startAnimation();
       e.preventDefault();
     });
 
     window.addEventListener('mouseup', () => {
       if (!isDragging) return;
       isDragging = false;
-      // Apply momentum
       target += velocity * 300;
-      // Clamp
-      const max = getMaxScroll();
-      if (target < -max) target = -max;
+      if (target < -maxScroll) target = -maxScroll;
       if (target > 0) target = 0;
+      startAnimation();
     });
 
     // Touch support
@@ -265,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
       velocity = 0;
       prevX = e.touches[0].clientX;
       prevTime = Date.now();
+      startAnimation();
     }, { passive: true });
 
     carousel.addEventListener('touchmove', (e) => {
@@ -276,15 +338,16 @@ document.addEventListener('DOMContentLoaded', () => {
       prevX = e.touches[0].clientX;
       prevTime = now;
       target = startPos + dx;
+      startAnimation();
     }, { passive: true });
 
     carousel.addEventListener('touchend', () => {
       if (!isDragging) return;
       isDragging = false;
       target += velocity * 300;
-      const max = getMaxScroll();
-      if (target < -max) target = -max;
+      if (target < -maxScroll) target = -maxScroll;
       if (target > 0) target = 0;
+      startAnimation();
     });
 
     // Mouse wheel horizontal scroll
@@ -292,9 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
         const delta = e.deltaX || e.deltaY;
         target -= delta * 1.5;
-        const max = getMaxScroll();
-        if (target < -max) target = -max;
+        if (target < -maxScroll) target = -maxScroll;
         if (target > 0) target = 0;
+        startAnimation();
         e.preventDefault();
       }
     }, { passive: false });

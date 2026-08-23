@@ -4,8 +4,6 @@
    Lancaster Neuropathy
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
 /* --- CSS Custom Properties --- */
 :root {
   /* Brand palette (locked) */
@@ -881,6 +879,197 @@ p:last-child {
   flex-wrap: wrap;
 }
 
+/* --- Google Reviews --- */
+.google-reviews {
+  position: relative;
+  padding: clamp(64px, 8vw, 104px) 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 9% 0%, rgba(180, 134, 43, 0.13), transparent 32%),
+    linear-gradient(180deg, #f9f7f0 0%, var(--color-paper) 100%);
+  border-bottom: 1px solid rgba(23, 58, 46, 0.08);
+}
+
+.google-reviews::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -190px;
+  bottom: -250px;
+  border: 1px solid rgba(180, 134, 43, 0.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 38px rgba(180, 134, 43, 0.04), 0 0 0 76px rgba(180, 134, 43, 0.025);
+  pointer-events: none;
+}
+
+.google-reviews__header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 38px;
+}
+
+.google-reviews__header h2 {
+  max-width: 720px;
+  margin: 12px 0 0;
+  font-size: clamp(2rem, 4.3vw, 3.7rem);
+}
+
+.google-reviews__summary {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 3px;
+  min-width: 230px;
+  padding: 20px 24px;
+  color: var(--color-forest);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(23, 58, 46, 0.12);
+  border-radius: var(--radius-md);
+  box-shadow: 0 14px 40px rgba(17, 44, 34, 0.08);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.google-reviews__summary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(180, 134, 43, 0.5);
+  box-shadow: 0 18px 46px rgba(17, 44, 34, 0.13);
+}
+
+.google-reviews__source {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 0.78rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.google-reviews__g {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: #4285f4;
+  background: #fff;
+  border: 1px solid rgba(66, 133, 244, 0.22);
+  border-radius: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.google-reviews__score {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+.google-reviews__stars,
+.google-review-card__stars {
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+}
+
+.google-reviews__count {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: var(--fw-semibold);
+}
+
+.google-reviews__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.google-review-card {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: clamp(26px, 3vw, 34px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 58, 46, 0.1);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 42px rgba(17, 44, 34, 0.07);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.google-review-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(180, 134, 43, 0.42);
+  box-shadow: 0 22px 52px rgba(17, 44, 34, 0.12);
+}
+
+.google-review-card__stars {
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+}
+
+.google-review-card__quote {
+  margin: 0 0 28px;
+}
+
+.google-review-card__quote p {
+  color: var(--color-forest);
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.4vw, 1.32rem);
+  font-weight: var(--fw-semibold);
+  line-height: 1.55;
+}
+
+.google-review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.google-review-card__avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  color: var(--color-cream);
+  background: var(--color-forest);
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.05em;
+}
+
+.google-review-card__author strong,
+.google-review-card__author small {
+  display: block;
+}
+
+.google-review-card__author strong {
+  color: var(--color-forest);
+  font-size: 0.88rem;
+}
+
+.google-review-card__author small {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Service page hero — taller, top-aligned for the floating green panel */
 .hero--service {
   min-height: 72vh;
@@ -1058,8 +1247,10 @@ p:last-child {
 .service-card__bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   transition: transform var(--transition-slow);
 }
 
@@ -1738,6 +1929,24 @@ p:last-child {
   .hero__buttons {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .google-reviews__header {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 26px;
+  }
+
+  .google-reviews__summary {
+    width: 100%;
+  }
+
+  .google-reviews__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .google-review-card {
+    min-height: 0;
   }
 
   .fade-in-left,
