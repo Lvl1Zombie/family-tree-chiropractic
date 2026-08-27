@@ -10,7 +10,6 @@ function newConditionsBlock(eol) {
     `            <div class="nav__dropdown-submenu-menu">`,
     `              <a href="back-pain.html" class="nav__dropdown-item">Back Pain</a>`,
     `              <a href="headaches-and-migraines.html" class="nav__dropdown-item">Headaches and Migraines</a>`,
-    `              <a href="low-back-pain.html" class="nav__dropdown-item">Low Back Pain</a>`,
     `              <a href="neck-pain.html" class="nav__dropdown-item">Neck Pain</a>`,
     `              <a href="sciatica.html" class="nav__dropdown-item">Sciatica</a>`,
     `              <a href="scoliosis.html" class="nav__dropdown-item">Scoliosis</a>`,
@@ -69,12 +68,12 @@ const stubs = [
 
 const NAV = `
   <nav class="nav">
-    <a href="index.html" class="nav__logo">
+    <a href="/" class="nav__logo">
       <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
       <div class="nav__logo-text"><span class="nav__logo-name">Family Tree</span><span class="nav__logo-sub">Chiropractic</span><span class="nav__logo-tag">Lancaster Neuropathy</span></div>
     </a>
     <div class="nav__links">
-      <a href="index.html" class="nav__link">Home</a>
+      <a href="/" class="nav__link">Home</a>
       <div class="nav__dropdown"><span class="nav__link nav__dropdown-toggle">About</span>
         <div class="nav__dropdown-menu">
           <a href="meet-the-doctors.html" class="nav__dropdown-item">Meet the Doctors</a>
@@ -110,7 +109,6 @@ const NAV = `
             <div class="nav__dropdown-submenu-menu">
               <a href="back-pain.html" class="nav__dropdown-item">Back Pain</a>
               <a href="headaches-and-migraines.html" class="nav__dropdown-item">Headaches and Migraines</a>
-              <a href="low-back-pain.html" class="nav__dropdown-item">Low Back Pain</a>
               <a href="neck-pain.html" class="nav__dropdown-item">Neck Pain</a>
               <a href="sciatica.html" class="nav__dropdown-item">Sciatica</a>
               <a href="scoliosis.html" class="nav__dropdown-item">Scoliosis</a>
@@ -147,7 +145,7 @@ const FOOTER = `
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="index.html" class="nav__logo" style="margin-bottom: 8px;">
+          <a href="/" class="nav__logo" style="margin-bottom: 8px;">
             <img src="logo.png" alt="Family Tree Chiropractic logo" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%;">
             <div class="nav__logo-text"><span class="nav__logo-name">Family Tree</span><span class="nav__logo-sub">Chiropractic</span><span class="nav__logo-tag">Lancaster Neuropathy</span></div>
           </a>
@@ -155,7 +153,7 @@ const FOOTER = `
         </div>
         <div><div class="footer__heading">Services</div><a href="neuropathy.html" class="footer__link">Neuropathy</a><a href="chiropractic-care.html" class="footer__link">Chiropractic Care</a><a href="cold-laser-therapy.html" class="footer__link">Cold Laser Therapy</a><a href="decompression.html" class="footer__link">Decompression</a><a href="pulsewave.html" class="footer__link">PulseWave Therapy</a></div>
         <div><div class="footer__heading">More</div><a href="dot-exams.html" class="footer__link">DOT Exams</a><a href="accident-injury.html" class="footer__link">Accident Injury</a><a href="plantar-fasciitis.html" class="footer__link">Plantar Fasciitis</a><a href="gut-health.html" class="footer__link">Gut Health</a><a href="hipaa-notice.html" class="footer__link">HIPAA Notice</a><a href="nondiscrimination-notice.html" class="footer__link">Nondiscrimination Notice</a></div>
-        <div><div class="footer__heading">Contact</div><a href="tel:7177382555" class="footer__link">Call: 717-738-2555</a><span class="footer__link">904 Dawn Ave.<br>Ephrata, PA 17522</span><span class="footer__link">Mon&ndash;Thu: 9:00am&ndash;12:00pm<br>3:00pm&ndash;7:00pm<br>Fri: CDL Exams Only 9:00am&ndash;2:00pm<br>Sat: CDL Exams Only 9:00am&ndash;2:00pm<br>Sun: Closed</span></div>
+        <div><div class="footer__heading">Contact</div><a href="tel:7177382555" class="footer__link">Call: 717-738-2555</a><span class="footer__link">904 Dawn Ave<br>Ephrata, PA 17522</span><span class="footer__link">Mon&ndash;Thu: 9:00am&ndash;12:00pm<br>3:00pm&ndash;7:00pm<br>Fri: CDL Exams Only 9:00am&ndash;2:00pm<br>Sat: CDL Exams Only 9:00am&ndash;2:00pm<br>Sun: Closed</span></div>
       </div>
       <div class="footer__bottom"><span>&copy; 2026 Family Tree Chiropractic. All rights reserved.</span><span>Designed with care.</span></div>
     </div>
@@ -174,7 +172,7 @@ function buildStub({ slug, title, label, tagline }) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=seo-ephrata-v1">
 </head>
 <body>
 ${NAV}
@@ -227,7 +225,7 @@ ${NAV}
   </section>
 ${FOOTER}
 
-  <script src="main.js"></script>
+  <script src="main.js?v=seo-ephrata-v1"></script>
 </body>
 </html>
 `;

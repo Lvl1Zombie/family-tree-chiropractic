@@ -20,10 +20,27 @@ const path = require('path');
 
 const DOMAIN = 'https://ephratachiropractic.com';
 const SITE_NAME = 'Family Tree Chiropractic';
-const OG_IMAGE = `${DOMAIN}/logo.png`;
+const OG_IMAGE = `${DOMAIN}/about-clinic-hero.jpg`;
 
 // Pages that are not part of the public sitemap / shouldn't get tags.
-const EXCLUDE = new Set(['404.html']);
+const EXCLUDE = new Set([
+  '404.html',
+  '3-common-conditions-chiropractors-help.html',
+  '3-tips-from-your-chiropractor.html',
+  '5-reasons-to-choose-a-chiropractor.html',
+  'are-you-looking-for-a-chiropractor.html',
+  'back-pain-tips-city-chiropractor.html',
+  'chiropractic-care-for-back-pain.html',
+  'chiropractic-clinic-discusses-different-types-headaches.html',
+  'chiropractor-talks-about-headaches.html',
+  'low-back-pain.html',
+  'migraine-tips-from-a-chiropractic-clinic.html',
+  'sciatic-pain-helped-chiropractor.html',
+  'the-best-time-to-see-a-chiropractor.html',
+  'the-value-of-health.html',
+  'time-to-improve-your-health.html',
+  'why-choose-chiropractic-care.html'
+]);
 
 const htmlFiles = fs
   .readdirSync('.')
@@ -99,7 +116,7 @@ for (const file of htmlFiles) {
   <meta property="og:image" content="${OG_IMAGE}">
   <meta property="og:image:alt" content="${SITE_NAME}">
   <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${ogTitle}">
   <meta name="twitter:description" content="${ogDesc}">
   <meta name="twitter:image" content="${OG_IMAGE}">`;

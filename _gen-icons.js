@@ -8,7 +8,7 @@
  *   favicon-16.png        16x16
  *   apple-touch-icon.png  180x180 (iOS home-screen)
  *
- * logo.png itself stays the og:image (full-size is better for social cards).
+ * Social cards use the real clinic photo configured in _prep-for-domain.js.
  */
 const sharp = require('sharp');
 

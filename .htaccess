@@ -10,11 +10,27 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Collapse thin/duplicate content into the strongest matching page.
+  RewriteRule ^(low-back-pain|chiropractic-care-for-back-pain)\.html$ https://ephratachiropractic.com/back-pain.html [R=301,L]
+  RewriteRule ^sciatic-pain-helped-chiropractor\.html$ https://ephratachiropractic.com/sciatica.html [R=301,L]
+  RewriteRule ^(chiropractor-talks-about-headaches|chiropractic-clinic-discusses-different-types-headaches|migraine-tips-from-a-chiropractic-clinic)\.html$ https://ephratachiropractic.com/headaches-and-migraines.html [R=301,L]
+  RewriteRule ^back-pain-tips-city-chiropractor\.html$ https://ephratachiropractic.com/back-pain.html [R=301,L]
+  RewriteRule ^(3-tips-from-your-chiropractor|3-common-conditions-chiropractors-help|5-reasons-to-choose-a-chiropractor|are-you-looking-for-a-chiropractor|the-best-time-to-see-a-chiropractor|why-choose-chiropractic-care|the-value-of-health|time-to-improve-your-health)\.html$ https://ephratachiropractic.com/chiropractic-care.html [R=301,L]
+
   # Preserve search equity from the former domain with one-to-one redirects.
   # These rules become active when that domain is attached to this hosting
   # account; email-related DNS records are unaffected.
   RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
-  RewriteRule ^$ https://ephratachiropractic.com/ [R=301,L]
+  RewriteRule ^(index\.html)?$ https://ephratachiropractic.com/ [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^neuropathy-signs-and-symptoms/?$ https://ephratachiropractic.com/neuropathy.html [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^robots\.txt$ https://ephratachiropractic.com/robots.txt [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
+  RewriteRule ^sitemap\.xml$ https://ephratachiropractic.com/sitemap.xml [R=301,L]
 
   RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
   RewriteRule ^us/?$ https://ephratachiropractic.com/meet-the-doctors.html [R=301,L]
@@ -48,9 +64,12 @@
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(.+?)/?$ https://ephratachiropractic.com/$1.html [R=301,L]
 
-  # Retire unknown legacy URLs instead of sending Google to an irrelevant page.
-  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractorfamilytree\.com$ [NC]
-  RewriteRule ^ - [G,L]
+  # Do not blanket-410 unmatched legacy URLs. Explicit ranking/content paths
+  # are mapped above; anything genuinely unknown can resolve as a normal 404.
+
+  # The filename is an implementation detail; the homepage canonical is `/`.
+  RewriteCond %{HTTP_HOST} ^(www\.)?ephratachiropractic\.com$ [NC]
+  RewriteRule ^index\.html$ https://ephratachiropractic.com/ [R=301,L]
 
   # Redirect www -> non-www (https) in one hop.
   RewriteCond %{HTTP_HOST} ^www\.ephratachiropractic\.com [NC]
