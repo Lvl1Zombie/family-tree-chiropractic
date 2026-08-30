@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "node scripts/build-cloudflare.mjs"
+  },
   "dependencies": {
     "sharp": "^0.34.5"
   }

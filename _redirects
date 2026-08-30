@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects replacing the production Apache rules in .htaccess.
+/low-back-pain.html /back-pain.html 301
+/chiropractic-care-for-back-pain.html /back-pain.html 301
+/sciatic-pain-helped-chiropractor.html /sciatica.html 301
+/chiropractor-talks-about-headaches.html /headaches-and-migraines.html 301
+/chiropractic-clinic-discusses-different-types-headaches.html /headaches-and-migraines.html 301
+/migraine-tips-from-a-chiropractic-clinic.html /headaches-and-migraines.html 301
+/back-pain-tips-city-chiropractor.html /back-pain.html 301
+/3-tips-from-your-chiropractor.html /chiropractic-care.html 301
+/3-common-conditions-chiropractors-help.html /chiropractic-care.html 301
+/5-reasons-to-choose-a-chiropractor.html /chiropractic-care.html 301
+/are-you-looking-for-a-chiropractor.html /chiropractic-care.html 301
+/the-best-time-to-see-a-chiropractor.html /chiropractic-care.html 301
+/why-choose-chiropractic-care.html /chiropractic-care.html 301
+/the-value-of-health.html /chiropractic-care.html 301
+/time-to-improve-your-health.html /chiropractic-care.html 301
+/index.html / 301
