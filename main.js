@@ -3,33 +3,10 @@
    Scroll animations, navigation, interactions
    ============================================ */
 
-// Google Analytics 4. Events are deliberately limited to non-sensitive
-// navigation signals; no form values or medical information are transmitted.
-const GA_MEASUREMENT_ID = 'G-9S9C7VCR96';
+// GTM owns the GA4 configuration. This stub only queues privacy-safe events
+// until the container is ready; no form values or medical data are sent.
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
-let analyticsLoaded = false;
-
-function loadAnalytics() {
-  if (analyticsLoaded) return;
-  analyticsLoaded = true;
-  gtag('js', new Date());
-  gtag('config', GA_MEASUREMENT_ID);
-
-  const googleTag = document.createElement('script');
-  googleTag.async = true;
-  googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(googleTag);
-}
-
-// Keep analytics off the critical rendering path while still capturing
-// engaged visitors and normal sessions.
-['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
-  window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
-});
-window.addEventListener('load', () => {
-  window.setTimeout(loadAnalytics, 4000);
-}, { once: true });
 
 document.addEventListener('DOMContentLoaded', () => {
 
