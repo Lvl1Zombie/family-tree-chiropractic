@@ -212,7 +212,7 @@ ${NAV}
     <div class="container">
       <div class="cta-block fade-in">
         <h2>Ready to do something<br>about it?</h2>
-        <p class="subtitle">Pick up the phone. Tell us what's going on. We'll be straight with you about whether we can help — and if yes, the next step is a $37 starting consultation.</p>
+        <p class="subtitle">Pick up the phone. Tell us what's going on. We'll be straight with you about whether we can help — and if yes, the next step is a $75 starting consultation.</p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a href="tel:7177382555" class="btn btn--call">
             ${CALL_SVG}
